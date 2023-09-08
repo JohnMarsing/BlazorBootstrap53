@@ -1,0 +1,66 @@
+﻿@page "/donate"
+
+@using Page = BlazorBootstrap53.Links.Donate
+<PageTitle>@Page.Title</PageTitle>
+
+<div class="pb-2 mt-4 mb-2 border-bottom">
+	<h2><i class="@Page.Icon"></i> @Page.Title</h2>
+</div>
+
+<h4 class="text-center shadow-sm p-3 mb-5 bg-body-tertiary rounded">
+	<sup><small><i class="far fa-heart text-muted"></i></small></sup> We greatly appreciate your support of this ministry <sup><small><i class="far fa-heart text-muted"></i></small></sup>
+</h4>
+
+<p class="ms-3 mb-1 text-black-50"><small>Donation options</small></p>
+
+<div class="card mb-3">
+		<ul class="nav @navTabType" id="myTab" role="tablist">
+
+			@foreach (var item in Enums.NavItem.List.OrderBy(o => o.Value))
+			{
+				<li class="nav-item " role="presentation">
+					<button @onclick="@(e => OnButtonClicked(item))"
+									class="nav-link @NavLinkActive(@item)" type="button" role="tab"
+									id="@item.ButtonId"
+									data-bs-toggle="tab"
+									data-bs-target="@item.Target"
+									aria-controls="@item.AriaControls"
+									aria-selected="@AriaActive(item)">
+						@item.Value. @item.Name
+					</button>
+				</li>
+			}
+		</ul>
+
+		<div class="tab-content" id="myTabContent">
+
+			@foreach (var item in Enums.NavItem.List.OrderBy(o => o.Value))
+			{
+				<div class="tab-pane fade @TabPageActive(item)"
+						 id="@item.AriaControls" role="tabpanel"
+						 aria-labelledby="@item.ButtonId">
+
+					@if (item == Enums.NavItem.Stripe)
+					{
+					<StripeCard />
+					}
+					else
+					{
+						@if (item == Enums.NavItem.Zelle)
+						{
+							<ZelleCard />
+						}
+						else
+						{
+						<CheckCard />
+						}
+					}
+
+				</div>
+			}
+
+		</div>
+
+
+
+</div>

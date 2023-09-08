@@ -1,0 +1,15 @@
+
+<p>
+  Problems with <a href="https://blog.elmah.io/wrapping-javascript-libraries-in-blazor-webassembly-wasm/">PopperJS</a>
+</p>
+
+<p>
+  Here's a package for this <a href="https://github.com/KristofferStrube/Blazor.Popper">Blazor.Popper</a>
+</p>
+
+
+
+	<!-- I cant get PopperJS to work so I gave up-->
+
+
+Add to Pages/_Host.cshtml

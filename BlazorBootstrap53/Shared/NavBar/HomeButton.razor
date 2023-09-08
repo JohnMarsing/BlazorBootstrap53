@@ -1,0 +1,44 @@
+﻿<div class="d-sm-none">
+	<a class="navbar-brand @NavLink @TextColor" title="<576px Xs" href="@HomeIndex">
+		@* <i class="@Icon"></i>  *@
+		<b>@Title</b>
+	</a>
+</div>
+
+<div class="d-none d-sm-block d-md-none d-lg-none d-xl-none">
+	<a class="navbar-brand @NavLink @TextColor" title="≥576px Sm" href="@HomeIndex">
+		@* <i class="@Icon"></i>  *@
+		<b>@Title</b>
+	</a>
+</div>
+
+<div class="d-none d-md-block d-lg-none d-xl-none">
+	<a class="navbar-brand @NavLink @TextColor" title="≥768px Md" href="@HomeIndex">
+		@* <i class="@Icon"></i>  *@
+		<b>@Title</b>
+	</a>
+</div>
+
+<div class="d-none d-lg-block d-xl-none">
+	<a class="navbar-brand @NavLink @TextColor" title="≥992px Lg" href="@HomeIndex">
+		@* <i class="@Icon"></i>  *@
+		<b>@Title</b>
+	</a>
+</div>
+
+<div class="d-none d-xl-block">
+	<a class="navbar-brand @NavLink @TextColor" title="≥1200px Xl" href="@HomeIndex">
+		@* <i class="@Icon"></i>  *@
+		<b>@Title</b>
+	</a>
+</div>
+
+@code {
+	const string NavLink = "";  // " nav-link"
+	const string HomeIndex = "/";
+	const string Icon = "fas fa-chevron-right";  //fas fa-home
+	const string Title = "BS 5.3";
+	const string TextColor = ""; // "text-danger";  
+																//@using BlazorBootstrap53.Links;
+	//href="@Home.Index"
+}

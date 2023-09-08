@@ -1,0 +1,19 @@
+
+# Doesn't work
+
+<h1 class="mt-3">Nav and tabs Underline</h1>
+<p><a href="https://getbootstrap.com/docs/5.3/components/navs-tabs/#underline">docs</a></p>
+<ul class="nav nav-underline">
+  <li class="nav-item">
+    <a class="nav-link active" aria-current="page" href="#">Active</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Link</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Link</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link disabled">Disabled</a>
+  </li>
+</ul>

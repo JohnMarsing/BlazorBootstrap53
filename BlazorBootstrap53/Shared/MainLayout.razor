@@ -1,0 +1,19 @@
+﻿@using BlazorBootstrap53.Shared.NavBar
+@inherits LayoutComponentBase
+
+<div class="page">
+
+	<header>
+		<MenuOffCanvas></MenuOffCanvas>
+	</header>
+	<main>
+		<article class="content px-3">
+			@Body
+		</article>
+	</main>
+
+	<Footer />
+	
+	<BlazoredToasts Position="Blazored.Toast.Configuration.ToastPosition.BottomRight" />
+
+</div>
