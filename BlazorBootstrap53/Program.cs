@@ -1,7 +1,6 @@
 using BlazorBootstrap53.Settings;
 using Blazored.Toast;
 
-
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddRazorPages();

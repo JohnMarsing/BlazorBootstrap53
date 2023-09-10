@@ -120,6 +120,8 @@ public static class NavigationSearch
 	public const string Icon = "fas fa-compass"; //  fas fa-search
 }
 
+// OffCanvas <i class="fas fa-hamburger"></i>
+
 public static class Podcast
 {
 	public const string Index = "/Podcast";
@@ -134,7 +136,6 @@ public static class SampleCode
 	public const string Title = "Sample Code";
 	public const string Icon = "fas fa-vial";
 
-  //ToastTest
   public static class Accordion
   {
     public const string Index = "/Accordion/";
@@ -168,14 +169,21 @@ public static class SampleCode
   {
     public const string Index = "/DarkModeSupport";
     public const string Title = "Dark Mode Support";
-    public const string Icon = "far fa-clock";
+    public const string Icon = "fas fa-lightbulb"; 
+  }
+
+  public static class Pagination
+  {
+    public const string Index = "/Pagination";
+    public const string Title = "Pagination";
+    public const string Icon = "fas fa-exchange-alt"; 
   }
 
   public static class ToastTest
   {
     public const string Index = "/ToastTest";
     public const string Title = "ToastTest";
-    public const string Icon = "far fa-clock";
+    public const string Icon = "fas fa-bread-slice";
   }
 
 }

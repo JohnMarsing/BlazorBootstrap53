@@ -1,0 +1,139 @@
+﻿@page "/ToastTest"
+
+@using Blazored.Toast.Services
+@inject IToastService toastService
+@inject NavigationManager NavigationManager
+
+
+@using Page = BlazorBootstrap53.Links.SampleCode.ToastTest
+<PageTitle>@Page.Title</PageTitle>
+
+<div class="pb-2 mt-4 mb-2 border-bottom">
+	<h2><i class="@Page.Icon"></i> @Page.Title</h2>
+</div>
+
+<h4 class="mt-4">Basic</h4>
+<p class="ms-2 mt-1 mb-3 font-monospace">d-grid gap-2 d-sm-flex justify-content-sm-end</p>
+<div class="d-grid gap-2 d-sm-flex justify-content-sm-end">
+	<button class="btn btn-info me-sm-2" @onclick="@(() => toastService.ShowInfo("INFO"))">
+		Info
+	</button>
+	<button class="btn btn-success" @onclick="@(() => toastService.ShowSuccess("I'm a SUCCESS message with a custom heading"))">
+		Success
+	</button>
+	<button class="btn btn-warning" @onclick="@(() => toastService.ShowWarning("I'm a WARNING message"))">
+		Warning
+	</button>
+	<button class="btn btn-danger" @onclick="@(() => toastService.ShowError("I'm an ERROR message"))">
+		Error
+	</button>
+</div>
+
+<h4 class="mt-4">Moderate</h4>
+<p class="ms-2 mt-1 mb-3 font-monospace">d-grid gap-2 d-md-flex justify-content-md-end</p>
+<div class="d-grid gap-2 d-md-flex justify-content-md-end">
+	<button class="btn btn-info" @onclick="@OnShowHtml">
+		Info Toast with HTML
+	</button>
+	<button class="btn btn-info"
+	@onclick="@(() => toastService.ShowInfo("Click to refresh the page"
+			, options => options.OnClick = () => NavigationManager.NavigateTo("/", true)))">
+		Toast with custom action (Nav) on click
+	</button>
+
+</div>
+
+
+
+<h4 class="mt-4">Custom Component</h4>
+<p><small><code>d-grid gap-2 d-md-flex</code></small></p>
+
+<div class="d-grid gap-2 d-md-flex">
+
+	<button class="btn btn-primary"
+		@onclick="@(() => toastService.ShowToast<
+			MyToastComponent>(settings =>
+				{ settings.Timeout = 5; settings.ShowProgressBar = false; }))">
+		Custom Toast
+	</button>
+
+	<button class="btn btn-secondary"
+		@onclick="@(() => toastService.ShowToast<MyToastComponent>(
+				_toastParameters!
+				, settings => { settings.Timeout = 15; settings.ShowProgressBar = false; }))">
+			Custom Toast with parameters
+	</button>
+@*
+	JKM: "ShowProgressBar = true" does not seep to make a difference
+	<button class="btn btn-secondary"
+		@onclick="@(() => toastService.ShowToast<MyToastComponent>(
+				_toastParameters!
+				, settings => { settings.Timeout = 15; settings.ShowProgressBar = true; }))">
+			Custom Toast with parameters & progress bar
+	 *@
+
+</div>
+
+<h4 class="mt-4">Remove Toasts</h4>
+<p><small><code>d-grid gap-2 d-md-flex</code></small></p>
+<div class="d-grid gap-2 d-md-flex">
+	<button class="btn btn-primary" @onclick="ClearAll">Clear All Toasts</button>
+	<button class="btn btn-warning" @onclick="ClearWarnings">Clear Warning Toasts</button>
+	<button class="btn btn-info" @onclick="ClearInfos">Clear Info Toasts</button>
+	<button class="btn btn-secondary" @onclick="ClearCustom">Clear Custom Toasts</button>
+</div>
+
+
+<h4 class="mt-4">Remove queued Toasts</h4>
+<p class="ms-2 mt-1 mb-3"><code>d-grid gap-2 d-md-flex</code></p>
+<div class="d-grid gap-2 d-md-flex justify-content-md-end">
+	<button class="btn btn-primary me-md-2 btn-sm" type="button" @onclick="ClearQueue">Clear all queued Toasts</button>
+	<button class="btn btn-warning" type="button" @onclick="ClearQueueWarnings">Clear queued Warning Toasts</button>
+	<button type="button" class="btn btn-info"
+					style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
+		Clear queued Info Toasts
+	</button>
+
+</div>
+
+
+@code {
+	private ToastParameters? _toastParameters;
+
+	private void OnShowHtml()
+	{
+		RenderFragment message =@<text>I'm an <em>INFO</em> message with some <strong>bold</strong> text</text>;
+		toastService.ShowToast(ToastLevel.Info, message);
+	}
+
+	protected override void OnInitialized()
+	{
+		_toastParameters = new ToastParameters();
+		_toastParameters.Add(nameof(MyToastComponent.Title), "I'm a custom toast component with parameters");
+		_toastParameters.Add(nameof(MyToastComponent.ToastParam), "I'm a parameter");
+	}
+
+	private void ClearAll()
+			=> toastService.ClearAll();
+
+	private void ClearWarnings()
+			=> toastService.ClearToasts(ToastLevel.Warning);
+
+	private void ClearInfos()
+			=> toastService.ClearInfoToasts();
+
+	private void ClearCustom()
+			=> toastService.ClearCustomToasts();
+
+	private void ClearQueue()
+			=> toastService.ClearQueue();
+
+	private void ClearQueueWarnings()
+			=> toastService.ClearQueueToasts(ToastLevel.Warning);
+
+	private void ClearQueueInfos()
+			=> toastService.ClearQueueInfoToasts();
+
+
+}
+

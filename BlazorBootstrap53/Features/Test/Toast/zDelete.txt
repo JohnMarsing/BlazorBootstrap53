@@ -1,0 +1,65 @@
+
+	using Blazored.Toast.Services;
+	using Microsoft.AspNetCore.Components;
+
+	namespace BlazorBootstrap53.Features;
+
+//Toast!.ShowInfo($"Hello");
+
+<MyToastComponent Title="Title"  ToastParam="Param" />
+
+	public partial class ToastTest
+		{
+		[Inject] public IToastService? Toast { get; set; }
+
+		protected override void OnInitialized()
+			{
+			Toast!.ShowSuccess("Test");
+			base.OnInitialized();
+
+	}
+
+
+
+
+
+
+
+@* <ul class="list-group">
+	<li class="list-group-item">
+		<button class="btn btn-primary" @onclick="ClearQueue">Clear all queued Toasts</button>
+	</li>
+	<li class="list-group-item">
+		<button class="btn btn-warning" @onclick="ClearQueueWarnings">Clear queued Warning Toasts</button>
+	</li>
+	<li class="list-group-item">
+		<button class="btn btn-info" @onclick="ClearQueueInfos">Clear queued Info Toasts</button>
+	</li>
+</ul> 
+
+<button type="button" class="btn btn-primary"
+        style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
+  Custom button
+
+
+<button class="btn btn-info" type="button" @onclick="ClearQueueInfos">Clear queued Info Toasts</button>
+
+</button>
+
+*@
+
+
+
+
+	<li class="list-group-item">
+	<button class="btn btn-primary"
+	@onclick="@OnClickBasic">
+	Basic
+	</button>
+	</li> 
+
+
+	// protected void OnClickBasic()
+	// {
+	// 	toastService.ShowInfo("Test");
+		// }
