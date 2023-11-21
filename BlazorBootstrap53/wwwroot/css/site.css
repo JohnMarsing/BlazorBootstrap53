@@ -75,3 +75,15 @@ a, .btn-link {
 .blazor-error-boundary::after {
 	content: "An error has occurred."
 }
+
+.hebrew16 {
+	font-size: 16.0pt;
+	font-family: david;
+	direction: rtl;
+}
+
+.hebrew {
+	font-size: 22.0pt;
+	font-family: david;
+	direction: rtl;
+}

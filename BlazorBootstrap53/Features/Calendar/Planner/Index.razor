@@ -1,0 +1,98 @@
+﻿@page "/Planner"
+
+@using Page = BlazorBootstrap53.Links.SampleCode.Planner
+<PageTitle>@Page.Title</PageTitle>
+
+
+<div class="pb-2 mt-4 mb-5 border-bottom">
+	<h2><i class="@Page.Icon"></i> @Page.Title</h2>
+</div>
+
+
+<div class="row">
+	<div class="col-12 mb-3 mb-sm-0">
+		<div class="card">
+			<div class="card-body">
+
+				<div class="row">
+					<div class="col-4">Day of Atonement</div>
+					<div class="col-4 display-4 ">
+						<span class="badge bg-primary text-center">Yom Kippur</span>
+					</div>
+					<div class="col-4 text-end hebrew">יוֹם כִּיפּוּר</div>
+				</div>
+
+				<div class="row mt-2">
+					<div class="col-12">
+						
+						<div class="progress-stacked" style="height: 40px">
+							<div class="progress" role="progressbar" aria-label="Segment one" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"
+									 style="width: 30%; height: 40px">
+								<div class="progress-bar bg-secondary"><span class="h5">Oct. 11 Erev</span></div>
+							</div>
+							<div class="progress" role="progressbar" aria-label="Segment two" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"
+									 style="width: 70%; height: 40px">
+								<div class="progress-bar bg-warning"><span class="h5">Oct. 12 Day</span></div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="row mt-4">
+					<div class="col-12">
+						<p class="card-text text-center">In the afternoon we have our Yom Kippur service and break the fast after the sun sets</p>
+
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<div class="row mt-4">
+	<div class="col-12 mb-3 mb-sm-0">
+
+		<div class="card">
+			<div class="card-body">
+
+				<div class="row">
+					<div class="col-4">Weeks</div>
+					<div class="col-4 display-4 ">
+						<span class="badge bg-primary text-center">Shavu'ot</span>
+					</div>
+					<div class="col-4 text-end hebrew">שָׁבוּעוֹת</div>
+				</div>
+
+				<div class="row mt-2">
+					<div class="col-12">
+
+						<div class="progress-stacked" style="height: 40px">
+							<div class="progress" role="progressbar" aria-label="Segment one" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"
+									 style="width: 30%; height: 40px">
+								<div class="progress-bar bg-secondary"><span class="h5">June 5 Erev</span></div>
+							</div>
+							<div class="progress" role="progressbar" aria-label="Segment two" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"
+									 style="width: 70%; height: 40px">
+								<div class="progress-bar bg-warning"><span class="h5">June 6 Day</span></div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="row mt-4">
+					<div class="col-12">
+						<p class="card-text text-center">The high sabbath begins the evening before; This is also called Pentecost</p>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+</div>
+
+
+@code {
+
+	}

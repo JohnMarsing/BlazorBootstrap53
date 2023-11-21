@@ -186,6 +186,15 @@ public static class SampleCode
     public const string Icon = "fas fa-bread-slice";
   }
 
+  public static class Planner
+  {
+    public const string Index = "/Planner";
+    public const string Title = "Planner";
+    public const string Icon = "far fa-map";
+  }
+
+  
+
 }
 
 public static class Sitemap
