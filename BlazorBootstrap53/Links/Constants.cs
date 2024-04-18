@@ -197,6 +197,15 @@ public static class SampleCode
 
 }
 
+
+
+public static class Carousel
+{
+  public const string Index = "/Carousel";
+  public const string Title = "Carousel";
+  public const string Icon = "fas fa-image";
+}
+
 public static class Sitemap
 {
 	public const string Index = "/Sitemap";

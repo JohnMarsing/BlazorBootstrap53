@@ -1,0 +1,34 @@
+﻿@page "/Carousel"
+@using Page = BlazorBootstrap53.Links.Sitemap
+<PageTitle>@Page.Title</PageTitle>
+
+  <div class="pb-2 mt-4 mb-2 border-bottom">
+    <h2><i class="@Page.Icon"></i> @Page.Title</h2>
+</div>
+
+
+<div id="carouselId" class="carousel slide">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="/images/donate-blank-check.jpg" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="/images/donate-zelle.jpg" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="/images/icon-512.png" class="d-block w-100" alt="...">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselId" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselId" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+@code {
+
+}
