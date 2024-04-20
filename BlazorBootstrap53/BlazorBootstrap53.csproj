@@ -1,11 +1,19 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
-    <TargetFramework>net7.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UserSecretsId>a004b138-e0f9-4240-b20f-2eb6b6b3ca69</UserSecretsId>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Features\ThresholdCovenant\OriginalHtml\z94_SCRIPTURAL_INDEX.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="Features\ThresholdCovenant\OriginalHtml\z94_SCRIPTURAL_INDEX.txt" />
+  </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Data\" />
@@ -13,8 +21,17 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Ardalis.SmartEnum" Version="7.0.0" />
-    <PackageReference Include="Blazored.Toast" Version="4.1.0" />
+    <PackageReference Include="Ardalis.SmartEnum" Version="8.0.0" />
+    <PackageReference Include="Blazored.Toast" Version="4.2.1" />
+    <PackageReference Include="Seq.Extensions.Logging" Version="8.0.0" />
+    <PackageReference Include="Serilog.AspNetCore" Version="8.0.1" />
+    <PackageReference Include="Serilog.Enrichers.Environment" Version="2.3.0" />
+    <PackageReference Include="Serilog.Enrichers.Process" Version="2.0.2" />
+    <PackageReference Include="Serilog.Enrichers.Thread" Version="3.1.0" />
+    <PackageReference Include="Serilog.Settings.Configuration" Version="8.0.0" />
+    <PackageReference Include="Serilog.Sinks.Console" Version="5.0.1" />
+    <PackageReference Include="Serilog.Sinks.File" Version="5.0.0" />
+    <PackageReference Include="Serilog.Sinks.Seq" Version="7.0.0" />
   </ItemGroup>
 
 </Project>
