@@ -237,5 +237,13 @@ public static class SpecialEvents
 	public const string Icon = "far fa-clock";
 }
 
+
+public static class ThresholdCovenant
+{
+	public const string Index = "/ThresholdCovenant";
+	public const string Title = "Threshold Covenant";
+	public const string Icon = "fas fa-broom";
+}
+
 // Ignore Spelling: QRC
 
