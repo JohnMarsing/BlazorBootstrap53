@@ -8,16 +8,15 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Features\ThresholdCovenant\OriginalHtml\z94_SCRIPTURAL_INDEX.txt" />
+    <Content Remove="Features\ThresholdCovenant\BookSections\SubSection\BasonOrThreshold.razor" />
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Include="Features\ThresholdCovenant\OriginalHtml\z94_SCRIPTURAL_INDEX.txt" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Data\" />
     <Folder Include="wwwroot\css\bootstrap\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Features\ThresholdCovenant\BookSections\SubSection\BasonOrThreshold.razor" />
   </ItemGroup>
 
   <ItemGroup>
