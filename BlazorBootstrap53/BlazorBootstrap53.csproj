@@ -8,15 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Remove="Features\ThresholdCovenant\BookSections\SubSection\BasonOrThreshold.razor" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Folder Include="wwwroot\css\bootstrap\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="Features\ThresholdCovenant\BookSections\SubSection\BasonOrThreshold.razor" />
   </ItemGroup>
 
   <ItemGroup>
