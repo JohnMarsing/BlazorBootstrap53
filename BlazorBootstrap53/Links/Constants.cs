@@ -120,15 +120,6 @@ public static class NavigationSearch
 	public const string Icon = "fas fa-compass"; //  fas fa-search
 }
 
-
-
-public static class OffcanvasAutoClose
-{
-	public const string Index = "/OffcanvasAutoClose";
-	public const string Title = "Offcanvas Auto Close";
-	public const string Icon = "fab fa-fly";  // OffCanvas <i class="fas fa-hamburger"></i>
-}
-
 public static class Podcast
 {
 	public const string Index = "/Podcast";

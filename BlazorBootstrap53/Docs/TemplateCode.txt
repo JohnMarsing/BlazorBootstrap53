@@ -1,20 +1,9 @@
-﻿@page "/"
 
-@* @inject ILogger<Index>? Logger *@
+	@inject ILogger<Index>? Logger
 
-<PageTitle>Home | Blazor 5.3</PageTitle>
-
-<div class="pb-2 mt-4 mb-2 border-bottom">
-  <h2>Home</h2>
-</div>
-
-@code {
-	/*
 	protected override void OnInitialized()
-	{
+		{
 		base.OnInitialized();
 		Logger!.LogWarning("{Class}!{MethodCallBack} Warning", nameof(Index), nameof(OnInitialized));
 		Logger!.LogDebug("{Class}!{MethodCallBack} Debug", nameof(Index), nameof(OnInitialized));
 	}
-	*/
-}
