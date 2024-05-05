@@ -175,3 +175,4 @@ public abstract class Nav : SmartEnum<Nav>
 	#endregion
 
 }
+// Ignore Spelling: Nav
