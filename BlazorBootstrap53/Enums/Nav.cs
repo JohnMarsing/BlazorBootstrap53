@@ -24,7 +24,6 @@ public abstract class Nav : SmartEnum<Nav>
 		internal const int Location = 4;
 		internal const int Sitemap = 5;
 		internal const int Contact = 6;
-		internal const int ThresholdCovenant = 7;
 		internal const int Store = 8;
 		internal const int SampleCode = 9;
 		internal const int DarkModeSupport = 10;
@@ -68,7 +67,6 @@ public abstract class Nav : SmartEnum<Nav>
 	public static readonly Nav Location = new LocationSE();
 	public static readonly Nav Sitemap = new SitemapSE();
 	public static readonly Nav Contact = new ContactSE();
-	public static readonly Nav ThresholdCovenant = new ThresholdCovenantSE();
 	public static readonly Nav Store = new StoreSE();
 	public static readonly Nav SampleCode = new SampleCodeSE();
 	#endregion
@@ -149,17 +147,6 @@ public abstract class Nav : SmartEnum<Nav>
 		public override string Title => "Contact";
 		public override string Icon => "far fa-comment-dots";
 		public override int Sort => Id.Contact;
-		public override PageListType PageListType => PageListType.SitemapPage | PageListType.Layout | PageListType.Footer;
-		public override bool IsPartOfList(PageListType pageListType) => (PageListType & pageListType) == pageListType;
-	}
-
-	private sealed class ThresholdCovenantSE : Nav
-	{
-		public ThresholdCovenantSE() : base($"{nameof(Id.ThresholdCovenant)}", Id.ThresholdCovenant) { }
-		public override string Index => "/ThresholdCovenant";
-		public override string Title => "Threshold Covenant";
-		public override string Icon => "fas fa-broom";
-		public override int Sort => Id.ThresholdCovenant;
 		public override PageListType PageListType => PageListType.SitemapPage | PageListType.Layout | PageListType.Footer;
 		public override bool IsPartOfList(PageListType pageListType) => (PageListType & pageListType) == pageListType;
 	}

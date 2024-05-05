@@ -1,0 +1,2 @@
+		<!-- `card-body` is the building block of a card, use it whenever you need a **padded section** within a card. -->
+		<!-- withing `card-text` text be added and styled with the standard HTML tags.   -->

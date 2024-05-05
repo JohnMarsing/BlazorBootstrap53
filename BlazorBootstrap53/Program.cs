@@ -24,6 +24,7 @@ try
 
 	builder.Services.AddRazorPages();
 	builder.Services.AddServerSideBlazor(); // Note 5: 
+	//builder.Services.AddServerSideBlazor().AddCircuitOptions( options => { options.DetailedErrors = System.Convert.ToBoolean(Configuration["DetailedErrors"]); }); 
 	builder.Services.AddBlazoredToast();
 
 	Log.Logger.Information("Total services: {count}", builder.Services.Count);

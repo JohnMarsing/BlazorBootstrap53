@@ -1,6 +1,0 @@
-﻿namespace BlazorBootstrap53.Features.ThresholdCovenant.OriginalHtml
-{
-	public class z95_SCRIPTURAL_INDEX
-	{
-	}
-}

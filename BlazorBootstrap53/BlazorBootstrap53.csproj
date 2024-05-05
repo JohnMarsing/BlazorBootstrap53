@@ -8,15 +8,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Features\ThresholdCovenant\OriginalHtml\z94_SCRIPTURAL_INDEX.txt" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Compile Include="Features\ThresholdCovenant\OriginalHtml\z94_SCRIPTURAL_INDEX.txt" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Data\" />
     <Folder Include="wwwroot\css\bootstrap\" />
   </ItemGroup>
 
