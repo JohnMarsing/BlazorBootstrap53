@@ -1,0 +1,33 @@
+﻿@page "/OffcanvasAutoClose"
+
+@using Page = BlazorBootstrap53.Links.OffcanvasAutoClose
+<PageTitle>@Page.Title</PageTitle>
+
+	<div class="pb-2 mt-4 mb-2 border-bottom">
+		<h2><i class="@Page.Icon"></i> @Page.Title</h2>
+</div>
+
+<p>
+	I need a Blazor JS Interop example that will close a Bootstrap offcanvas component
+</p>
+
+	<div class="card mb-3">
+		<div class="card-body d-flex justify-content-end mx-1">
+			<Filter CurrentFilter=@CurrentFilter OnFilterSelected="@ReturnedFilter" />
+		</div>
+	</div>
+
+	<BookSection NavItem="CurrentFilter" />
+
+	@code {
+	public Enums.NavItem? CurrentFilter { get; set; } = Enums.NavItem.HebrewPassOverOrCrossOver;
+	
+	#region EventCallbacks
+	private void ReturnedFilter(Enums.NavItem filter)
+	{
+		CurrentFilter = filter;
+		StateHasChanged();
+	}
+	#endregion
+
+}

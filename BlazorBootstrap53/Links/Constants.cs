@@ -120,7 +120,14 @@ public static class NavigationSearch
 	public const string Icon = "fas fa-compass"; //  fas fa-search
 }
 
-// OffCanvas <i class="fas fa-hamburger"></i>
+
+
+public static class OffcanvasAutoClose
+{
+	public const string Index = "/OffcanvasAutoClose";
+	public const string Title = "Offcanvas Auto Close";
+	public const string Icon = "fab fa-fly";  // OffCanvas <i class="fas fa-hamburger"></i>
+}
 
 public static class Podcast
 {
@@ -172,7 +179,7 @@ public static class SampleCode
     public const string Icon = "fas fa-lightbulb"; 
   }
 
-  public static class Pagination
+	public static class Pagination
   {
     public const string Index = "/Pagination";
     public const string Title = "Pagination";

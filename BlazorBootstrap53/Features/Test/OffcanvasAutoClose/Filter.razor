@@ -1,0 +1,86 @@
+﻿@using Microsoft.Extensions.Logging;
+
+@inject IJSRuntime JS
+@inject ILogger<Filter>? Logger
+@* @inject IToastService? Toast *@
+
+
+<button class="btn btn-primary btn-sm" data-bs-toggle="offcanvas" data-bs-target="#offcanvasid" aria-controls="offcanvasid" )>
+	Contents
+	<i class="fas fa-bars"></i>
+</button>
+
+<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasid" aria-labelledby="offcanvasidLabel">
+	<div class="offcanvas-header">
+
+		@* Hack: this forces the close button to the right *@
+		<span class=""></span>
+
+		<button type="button" class="btn-close"
+						data-bs-dismiss="offcanvas" aria-label="Close">
+		</button>
+
+	</div>
+
+	<div class="offcanvas-body">
+
+		<ul class="list-group">
+			@foreach (var item in Enums.NavItem.List.OrderBy(o => o.Value))
+			{
+				<li class="list-group-item @ActiveFilter(item)">
+					<a @onclick="@(e => ButtonClicked(item))"
+						 type="button"
+						 id="@item.ButtonId">
+						@item.Value <small>@item.Title</small>
+					</a>
+				</li>
+			}
+		</ul>
+
+	</div>
+</div>
+
+@code {
+	[Parameter, EditorRequired] public required Enums.NavItem? CurrentFilter { get; set; }
+	[Parameter] public EventCallback<Enums.NavItem> OnFilterSelected { get; set; }
+
+	protected Enums.NavItem currentNavItem = Enums.NavItem.HebrewPassOverOrCrossOver;
+
+	private async Task ButtonClicked(Enums.NavItem filter)
+	{
+		currentNavItem = filter;
+		try
+		{
+			// If I call this it doesn't work as expected, and it also disables the close button
+			//await CloseOffcanvas();
+		}
+		finally
+		{
+			await OnFilterSelected.InvokeAsync(filter);
+		}
+	}
+
+	// This doesn't work as noted above
+	private async Task CloseOffcanvas()
+	{
+		Logger!.LogInformation("{Class}!{Method}", nameof(Filter), nameof(CloseOffcanvas));
+		try
+		{
+			Logger!.LogInformation("{Class}!{Method} Calling closeOffcanvas", nameof(Filter), nameof(CloseOffcanvas));
+			await JS.InvokeVoidAsync("closeOffcanvas");
+		}
+		catch (Exception ex)
+		{
+			Logger!.LogError(ex, "{Class}!{Method}", nameof(Filter), nameof(CloseOffcanvas));
+			//Toast!.ShowError($"Exception in {nameof(Filter)}!{nameof(CloseOffcanvas)}");
+		}
+
+	}
+
+
+	public string ActiveFilter(Enums.NavItem? filter)
+	{
+		return filter == CurrentFilter ? "active" : "";
+	}
+	
+}
