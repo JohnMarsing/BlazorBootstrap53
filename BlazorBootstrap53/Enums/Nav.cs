@@ -1,4 +1,5 @@
 ﻿using Ardalis.SmartEnum;
+using Microsoft.AspNetCore.Http;
 
 namespace BlazorBootstrap53.Enums;
 
@@ -24,6 +25,7 @@ public abstract class Nav : SmartEnum<Nav>
 		internal const int Location = 4;
 		internal const int Sitemap = 5;
 		internal const int Contact = 6;
+		internal const int StatusCode = 7;
 		internal const int Store = 8;
 		internal const int SampleCode = 9;
 		internal const int DarkModeSupport = 10;
@@ -67,6 +69,7 @@ public abstract class Nav : SmartEnum<Nav>
 	public static readonly Nav Location = new LocationSE();
 	public static readonly Nav Sitemap = new SitemapSE();
 	public static readonly Nav Contact = new ContactSE();
+	public static readonly Nav StatusCode = new StatusCodeSE();
 	public static readonly Nav Store = new StoreSE();
 	public static readonly Nav SampleCode = new SampleCodeSE();
 	#endregion
@@ -89,7 +92,7 @@ public abstract class Nav : SmartEnum<Nav>
 	{
 		public HomeSE() : base($"{nameof(Id.Home)}", Id.Home) { }
 		public override string Index => "/";
-		public override string Title => "Home";
+		public override string Title => "Home";  // >Home | Blazor 5.3
 		public override string Icon => "fas fa-home";
 		public override int Sort => Id.Home;
 		public override PageListType PageListType => PageListType.Footer;
@@ -150,6 +153,18 @@ public abstract class Nav : SmartEnum<Nav>
 		public override PageListType PageListType => PageListType.SitemapPage | PageListType.Layout | PageListType.Footer;
 		public override bool IsPartOfList(PageListType pageListType) => (PageListType & pageListType) == pageListType;
 	}
+
+	private sealed class StatusCodeSE : Nav
+	{
+		public StatusCodeSE() : base($"{nameof(Id.StatusCode)}", Id.StatusCode) { }
+		public override string Index => "/StatusCode";
+		public override string Title => "Status Code";
+		public override string Icon => "fas fa-question";
+		public override int Sort => Id.StatusCode;
+		public override PageListType PageListType => PageListType.None;
+		public override bool IsPartOfList(PageListType pageListType) => (PageListType & pageListType) == pageListType;
+	}
+	
 
 	private sealed class StoreSE : Nav
 	{

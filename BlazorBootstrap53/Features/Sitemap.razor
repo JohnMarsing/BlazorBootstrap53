@@ -1,15 +1,23 @@
 ﻿@page "/Sitemap"
-@using Page = BlazorBootstrap53.Links.Sitemap
-<PageTitle>@Page.Title</PageTitle>
 
-<div class="pb-2 mt-4 mb-2 border-bottom">
-	<h2><i class="@Page.Icon"></i> @Page.Title</h2>
+<PageHeader PageEnum="BlazorBootstrap53.Enums.Nav.Sitemap" />
+
+<div class="h5">
+
+	<ul class="fa-ul">
+		@foreach (var item in Nav.List.ToList()
+			.Where(w => w.IsPartOfList(PageListType.SitemapPage))
+			.OrderBy(o => o.Sort))
+		{
+			<li class="py-1">
+
+				<span class="fa-li"><i class="@item.Icon"></i></span>
+				<a href="@item.Index">
+					@item.Title
+				</a>
+
+			</li>
+		}
+	</ul>
+
 </div>
-
-@* <DataList Data="@Links" Type="LinkTypeEnum.Sitemap">
-	<span class="fa-li"><i class="@context.Icon"></i></span>
-	<a href="@context.Index">
-		@context.Title
-	</a>
-</DataList>
- *@

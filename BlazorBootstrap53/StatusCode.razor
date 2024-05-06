@@ -1,0 +1,16 @@
+﻿@page "/StatusCode/{responseCode}"
+
+<PageHeader PageEnum="BlazorBootstrap53.Enums.Nav.StatusCode" />
+
+@if (ResponseCode is not null && ResponseCode! == "404")
+{
+<img src="/images/404.jpg" class="img-fluid" alt="404" />
+}
+
+<h3>StatusCode: @ResponseCode</h3>
+
+@code {
+//#nullable disable
+	[Parameter] public string? ResponseCode { get; set; }
+
+}

@@ -1,3 +1,4 @@
+using BlazorBootstrap53.Components;
 using BlazorBootstrap53.Settings;
 using Blazored.Toast;
 using Serilog;
@@ -22,8 +23,9 @@ try
 
 	var builder = WebApplication.CreateBuilder(args);
 
-	builder.Services.AddRazorPages();
-	builder.Services.AddServerSideBlazor(); // Note 5: 
+	builder.Services.AddRazorComponents().AddInteractiveServerComponents(); // 005 added
+
+	//builder.Services.AddServerSideBlazor(); // Note 5: 
 	//builder.Services.AddServerSideBlazor().AddCircuitOptions( options => { options.DetailedErrors = System.Convert.ToBoolean(Configuration["DetailedErrors"]); }); 
 	builder.Services.AddBlazoredToast();
 
@@ -48,15 +50,22 @@ try
 
 	if (!app.Environment.IsDevelopment())
 	{
-		app.UseExceptionHandler("/Error");
+		app.UseExceptionHandler("/Error");  //"/Error", createScopeForErrors: true);
 		app.UseHsts();
 	}
 
+	app.MapRazorComponents<App>().AddInteractiveServerRenderMode(); // 005 added
+
 	app.UseHttpsRedirection();
 	app.UseStaticFiles();
-	app.UseRouting();
-	app.MapBlazorHub();
-	app.MapFallbackToPage("/_Host");
+	app.UseAntiforgery(); // 005 added
+	app.UseStatusCodePagesWithRedirects("/StatusCode/{0}"); // 005 added; See note 5
+
+	// 005 commented out
+	//app.UseRouting();  
+	// app.MapBlazorHub();
+	//app.MapFallbackToPage("/_Host");  
+
 	app.Run();
 	
 }
@@ -82,5 +91,6 @@ Note 1: because we are in static void Main, we have to use the static keyword Lo
 Note 2: If you have any log messages that are pending, then this will make sure they are written.
 Note 3: What's the difference between `Log.Fatal` and `Log.Logger.Fatal`
 Note 4: Adding a class (record) inside the `Program.cs`
-
+Note 5: Because <Router...<NotFound>...</NotFound> in Routes.razor is not longer relevant, 
+				so you need to handle stuff like 404's differently by e.g. creating a StatusCode.razor
 */
