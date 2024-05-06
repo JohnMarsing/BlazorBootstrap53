@@ -16,12 +16,14 @@ This repo demonstrates examples of how I use Blazor and Bootstrap 5.3
 # Features
 
 ## Bootstrap
-- Using Bootstrap `offcanvas` to show messaging like if an error occured
-- Using a Bootstrap Modal for the user to select QRC
+- [Offcanvas](https://getbootstrap.com/docs/5.3/components/offcanvas/) to use for menu items as opposed to using [NavBar](https://getbootstrap.com/docs/5.3/components/navbar/)
+- [Modal](https://getbootstrap.com/docs/5.3/components/modal/) for the user to select QRC
+- [Carousel](https://getbootstrap.com/docs/5.3/components/carousel/)
 
 ## Vertical Slice Archictecture
 - I really like how this approach along with Blazor's component model brings great development clarity 😀
 - All UI pages, includeing the Home Page are under the `Features` folder
+- Also, Mobile first approach
 
 ## "Meta" Programming
 - Extensive use of the SmartEnum to capture meta data to help drive the Navigation and  `Sitemap.razor` and `Footer.razor`.
