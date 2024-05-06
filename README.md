@@ -5,8 +5,6 @@
 This repo demonstrates examples of how I use Blazor and Bootstrap 5.3
 - This was receently update from a .Net 7 Server Side  Blazor App to .Net 8 Blazor Web App
 
-![README-HomeScreen](https://github.com/livingmessiah/LivingeMessiahASWA/assets/1078267/cc9b2a5a-2164-4489-bedd-f0e481545e42)
-
 # Nuget Packages Used
 - `Ardalis.SmartEnum`
 - `Blazored.Toast`
