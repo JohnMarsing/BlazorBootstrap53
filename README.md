@@ -4,7 +4,8 @@
 ![ReadmeScreenshot](https://github.com/JohnMarsing/BlazorBootstrap53/assets/1078267/06e9a51b-ae6b-4ee0-a29f-adc898dadcbf)
 
 This repo demonstrates examples of how I use Blazor and Bootstrap 5.3
-- This was receently update from a .Net 7 Server Side  Blazor App to .Net 8 Blazor Web App
+- This was receently update from a .Net 7 Server Side  Blazor App to .Net 8 Blazor Web App.
+- I used Jon Hilton's [blog](https://jonhilton.net/blazor-net8-migration/) to guide me.
 
 # Nuget Packages Used
 - `Ardalis.SmartEnum`
