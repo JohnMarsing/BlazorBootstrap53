@@ -4,21 +4,18 @@
 @inject ILogger<Filter>? Logger
 @* @inject IToastService? Toast *@
 
-<button class="btn btn-primary btn-sm" data-bs-toggle="offcanvas" data-bs-target="#offcanvasid" aria-controls="offcanvasid" )>
+<button class="btn btn-primary btn-sm" data-bs-toggle="offcanvas" data-bs-target="#offcanvasid" aria-controls="offcanvasid">
 	Contents
 	<i class="fas fa-bars"></i>
 </button>
 
 <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasid" aria-labelledby="offcanvasidLabel">
+
 	<div class="offcanvas-header">
-
-		@* Hack: this forces the close button to the right *@
-		<span class=""></span>
-
+		<span class=""></span> @* Hack: this forces the close button to the right *@
 		<button type="button" class="btn-close"
 						data-bs-dismiss="offcanvas" aria-label="Close">
 		</button>
-
 	</div>
 
 	<div class="offcanvas-body">
@@ -48,34 +45,13 @@
 	private async Task ButtonClicked(Enums.MenuItem filter)
 	{
 		currentMenuItem = filter;
-		try
-		{
-			// If I call this it doesn't work as expected, and it also disables the close button
-			//await CloseOffcanvas();
-		}
-		finally
-		{
-			await OnFilterSelected.InvokeAsync(filter);
-		}
-	}
 
-	// This doesn't work as noted above
-	private async Task CloseOffcanvas()
-	{
-		Logger!.LogInformation("{Class}!{Method}", nameof(Filter), nameof(CloseOffcanvas));
-		try
-		{
-			Logger!.LogInformation("{Class}!{Method} Calling closeOffcanvas", nameof(Filter), nameof(CloseOffcanvas));
-			await JS.InvokeVoidAsync("closeOffcanvas");
-		}
-		catch (Exception ex)
-		{
-			Logger!.LogError(ex, "{Class}!{Method}", nameof(Filter), nameof(CloseOffcanvas));
-			//Toast!.ShowError($"Exception in {nameof(Filter)}!{nameof(CloseOffcanvas)}");
-		}
-
-	}
-
+		// calling this doesn't close the component 
+		//   It also disables the close button
+		await JS.InvokeVoidAsync("closeOffcanvas"); 
+ 		
+		await OnFilterSelected.InvokeAsync(filter);
+ 	}
 
 	public string ActiveFilter(Enums.MenuItem? filter)
 	{
