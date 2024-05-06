@@ -24,7 +24,7 @@
 	<div class="offcanvas-body">
 
 		<ul class="list-group">
-			@foreach (var item in Enums.NavItem.List.OrderBy(o => o.Value))
+			@foreach (var item in Enums.MenuItem.List.OrderBy(o => o.Value))
 			{
 				<li class="list-group-item @ActiveFilter(item)">
 					<a @onclick="@(e => ButtonClicked(item))"
@@ -40,14 +40,14 @@
 </div>
 
 @code {
-	[Parameter, EditorRequired] public required Enums.NavItem? CurrentFilter { get; set; }
-	[Parameter] public EventCallback<Enums.NavItem> OnFilterSelected { get; set; }
+	[Parameter, EditorRequired] public required Enums.MenuItem? CurrentFilter { get; set; }
+	[Parameter] public EventCallback<Enums.MenuItem> OnFilterSelected { get; set; }
 
-	protected Enums.NavItem currentNavItem = Enums.NavItem.HebrewPassOverOrCrossOver;
+	protected Enums.MenuItem currentMenuItem = Enums.MenuItem.HebrewPassOverOrCrossOver;
 
-	private async Task ButtonClicked(Enums.NavItem filter)
+	private async Task ButtonClicked(Enums.MenuItem filter)
 	{
-		currentNavItem = filter;
+		currentMenuItem = filter;
 		try
 		{
 			// If I call this it doesn't work as expected, and it also disables the close button
@@ -77,7 +77,7 @@
 	}
 
 
-	public string ActiveFilter(Enums.NavItem? filter)
+	public string ActiveFilter(Enums.MenuItem? filter)
 	{
 		return filter == CurrentFilter ? "active" : "";
 	}

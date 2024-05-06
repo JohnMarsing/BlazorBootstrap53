@@ -1,7 +1,7 @@
 ﻿@page "/"
 
-@using BlazorBootstrap53.Features.Home.OffcanvasAutoClose
-@using BlazorBootstrap53.Features.Home.OffcanvasAutoClose.Enums
+@using BlazorBootstrap53.Features.Home.MenuOffcanvas
+@using BlazorBootstrap53.Features.Home.MenuOffcanvas.Enums
 
 <PageHeader PageEnum="Nav.Home" />
 
@@ -9,13 +9,14 @@
 	<Filter CurrentFilter=@CurrentFilter OnFilterSelected="@ReturnedFilter" />
 </div>
 
-<BookSection NavItem="CurrentFilter" /> 
+@* Dynamically show content based on Current Filter *@
+<BookSectionDynamicComponent MenuItem="CurrentFilter" /> 
 
 @code {
-	public NavItem CurrentFilter { get; set; } = NavItem.HebrewPassOverOrCrossOver;
+	public MenuItem CurrentFilter { get; set; } = MenuItem.HebrewPassOverOrCrossOver;
 	
-	#region EventCallbacks
-	private void ReturnedFilter(NavItem filter)
+	#region EventCallback
+	private void ReturnedFilter(MenuItem filter)
 	{
 		CurrentFilter = filter;
 		StateHasChanged();
