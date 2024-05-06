@@ -1,5 +1,4 @@
 ﻿using Ardalis.SmartEnum;
-using Microsoft.AspNetCore.Http;
 
 namespace BlazorBootstrap53.Enums;
 
@@ -92,7 +91,7 @@ public abstract class Nav : SmartEnum<Nav>
 	{
 		public HomeSE() : base($"{nameof(Id.Home)}", Id.Home) { }
 		public override string Index => "/";
-		public override string Title => "Home";  // >Home | Blazor 5.3
+		public override string Title => "Blazor and Bootstrap";  // 
 		public override string Icon => "fas fa-home";
 		public override int Sort => Id.Home;
 		public override PageListType PageListType => PageListType.Footer;
