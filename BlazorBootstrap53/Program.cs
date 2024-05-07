@@ -5,7 +5,7 @@ using Serilog;
 using System.Reflection;
 
 Log.Logger = new LoggerConfiguration()
-		.MinimumLevel.Debug()
+		.MinimumLevel.Information()
 		.MinimumLevel.Override("Microsoft.System", Serilog.Events.LogEventLevel.Warning)
 		.WriteTo.Console()
 		.WriteTo.Seq(

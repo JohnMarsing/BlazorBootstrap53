@@ -1,15 +1,11 @@
 ﻿@using Microsoft.Extensions.Logging;
 
-@inject IJSRuntime JS
-@inject ILogger<Filter>? Logger
-@* @inject IToastService? Toast *@
-
 <button class="btn btn-primary btn-sm" data-bs-toggle="offcanvas" data-bs-target="#offcanvasid" aria-controls="offcanvasid">
 	Contents
 	<i class="fas fa-bars"></i>
 </button>
 
-<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasid" aria-labelledby="offcanvasidLabel">
+<div class="offcanvas offcanvas-end skinny-offcanvas" tabindex="-1" id="offcanvasid" aria-labelledby="offcanvasidLabel">
 
 	<div class="offcanvas-header">
 		<span class=""></span> @* Hack: this forces the close button to the right *@
@@ -25,8 +21,7 @@
 			{
 				<li class="list-group-item @ActiveFilter(item)">
 					<a @onclick="@(e => ButtonClicked(item))"
-						 type="button"
-						 id="@item.ButtonId">
+						 type="button" data-bs-dismiss="offcanvas" id="@item.ButtonId">
 						@item.Value <small>@item.Title</small>
 					</a>
 				</li>
@@ -45,11 +40,6 @@
 	private async Task ButtonClicked(Enums.MenuItem filter)
 	{
 		currentMenuItem = filter;
-
-		// calling this doesn't close the component 
-		//   It also disables the close button
-		await JS.InvokeVoidAsync("closeOffcanvas"); 
- 		
 		await OnFilterSelected.InvokeAsync(filter);
  	}
 

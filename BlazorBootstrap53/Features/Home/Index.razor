@@ -3,10 +3,12 @@
 @using BlazorBootstrap53.Features.Home.MenuOffcanvas
 @using BlazorBootstrap53.Features.Home.MenuOffcanvas.Enums
 
+@inject ILogger<Filter>? Logger
+
 <PageHeader PageEnum="Nav.Home" />
 
 <div class="d-flex justify-content-end mx-1">
-	<Filter CurrentFilter=@CurrentFilter OnFilterSelected="@ReturnedFilter" />
+	<Filter CurrentFilter=@CurrentFilter OnFilterSelected="@ReturnedFilter" /> 
 </div>
 
 @* Dynamically show content based on Current Filter *@
@@ -15,6 +17,11 @@
 @code {
 	public MenuItem CurrentFilter { get; set; } = MenuItem.HebrewPassOverOrCrossOver;
 	
+	protected override void OnInitialized()
+	{
+		Logger!.LogInformation("{Class}!{Method} Information", nameof(Index), nameof(OnInitialized));
+	}
+
 	#region EventCallback
 	private void ReturnedFilter(MenuItem filter)
 	{
