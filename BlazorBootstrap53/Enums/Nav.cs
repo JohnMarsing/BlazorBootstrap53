@@ -33,6 +33,7 @@ public abstract class Nav : SmartEnum<Nav>
 		internal const int Planner = 13;
 		internal const int Pagination = 14;
 		internal const int ToastTest = 15;
+		internal const int Flex = 16;
 
 		/*
 		 Index 
@@ -71,6 +72,7 @@ public abstract class Nav : SmartEnum<Nav>
 	public static readonly Nav StatusCode = new StatusCodeSE();
 	public static readonly Nav Store = new StoreSE();
 	public static readonly Nav SampleCode = new SampleCodeSE();
+	public static readonly Nav Flex = new FlexSE();
 	#endregion
 
 	private Nav(string name, int value) : base(name, value)  // Constructor
@@ -183,6 +185,17 @@ public abstract class Nav : SmartEnum<Nav>
 		public override string Title => "Sample Code";
 		public override string Icon => "fas fa-vial";
 		public override int Sort => Id.SampleCode;
+		public override PageListType PageListType => PageListType.SitemapPage | PageListType.Layout;
+		public override bool IsPartOfList(PageListType pageListType) => (PageListType & pageListType) == pageListType;
+	}
+
+	private sealed class FlexSE : Nav
+	{
+		public FlexSE() : base($"{nameof(Id.Flex)}", Id.Flex) { }
+		public override string Index => "/Flex";
+		public override string Title => "Bootstrap Flex";
+		public override string Icon => "fas fa-arrows-alt-h";  //  fas fa-expand-alt
+    public override int Sort => Id.Flex;
 		public override PageListType PageListType => PageListType.SitemapPage | PageListType.Layout;
 		public override bool IsPartOfList(PageListType pageListType) => (PageListType & pageListType) == pageListType;
 	}

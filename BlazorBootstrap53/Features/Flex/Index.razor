@@ -1,0 +1,113 @@
+﻿@page "/Flex"
+
+<PageHeader PageEnum="BlazorBootstrap53.Enums.Nav.Flex" />
+
+<h3>Auto margins</h3>
+<p>
+	mix flex alignments with <a href="https://getbootstrap.com/docs/5.3/utilities/flex/#auto-margins"><code>auto-margins</code></a>
+</p>
+
+
+
+
+<div class="row">
+	<div class="col-4">
+		<div class="card">
+
+			<div class="card-body">
+				<h5 class="card-title text-center">auto margins: default</h5>
+
+				<div class="d-flex mb-3">
+					<div class="p-1"><a class="btn btn-primary" href="/">1</a></div>
+					<div class="p-1"><a class="btn btn-primary" href="/">2</a></div>
+					<div class="p-1"><a class="btn btn-primary" href="/">3</a></div>
+				</div>
+
+			</div>
+
+		</div>
+	</div>
+
+	<div class="col-4">
+		<div class="card">
+
+			<div class="card-body">
+				<h5 class="card-title text-center">pushing two items to the right</h5>
+
+				<div class="d-flex mb-3">
+					<div class="me-auto p-1"><a class="btn btn-info" href="/">1</a> <br /><code>me-auto</code></div>
+					<div class="p-1"><a class="btn btn-primary" href="/">2</a></div>
+					<div class="p-1"><a class="btn btn-primary" href="/">3</a></div>
+				</div>
+
+			</div>
+
+		</div>
+	</div>
+
+	<div class="col-4">
+		<div class="card">
+			<div class="card-body">
+				<h5 class="card-title text-center">pushing two items to the left</h5>
+
+				<div class="d-flex mb-3">
+
+					<div class="p-1"><a class="btn btn-primary" href="/">1</a></div>
+					<div class="p-1"><a class="btn btn-primary" href="/">2</a></div>
+					<div class="ms-auto p-1"><a class="btn btn-info" href="/">3</a> <br /><code>ms-auto</code></div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+</div>
+
+<div class="row mt-2">
+
+	<div class="col-6">
+		<div class="card">
+
+			<div class="card-body">
+				<h5 class="card-title text-center">2 items + two items pushed to the right</h5>
+
+				<div class="d-flex mb-3">
+					<div class="p-1"><a class="btn btn-primary" href="/">1</a></div>
+					<div class="me-auto p-1"><a class="btn btn-info" href="/">2</a> <br /><code>me-auto</code></div>
+					<div class="p-1"><a class="btn btn-primary" href="/">3</a></div>
+					<div class="p-1"><a class="btn btn-primary" href="/">4</a></div>
+				</div>
+
+			</div>
+
+		</div>
+	</div>
+
+
+	<div class="col-6">
+		<div class="card">
+
+			<div class="card-body">
+				<h5 class="card-title text-center">2 items pushed to the left + 2 items</h5>
+
+				<div class="d-flex mb-3">
+
+
+					<div class="p-1"><a class="btn btn-primary" href="/">1</a></div>
+					<div class="p-1"><a class="btn btn-primary" href="/">2</a></div>
+					<div class="ms-auto p-1"><a class="btn btn-info" href="/">3</a> <br /><code>ms-auto</code></div>
+					<div class="p-1"><a class="btn btn-primary" href="/">4</a></div>
+				</div>
+
+			</div>
+
+		</div>
+	</div>
+
+
+</div>
+
+@code {
+	// me-auto:
+	// ms-auto:
+}
